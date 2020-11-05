@@ -1,0 +1,95 @@
+EXPERIMENTO=AAA
+DATASET_SIZE=
+BATCH_SIZE=80
+N_HIDDEN=600
+LEARNING_RATE=0.0009
+ALPHABET_CONFIG_PATH=CVData/alphabet.txt
+
+--data_aug_features_additive 0.3 \
+--data_aug_features_multiplicative 0.3 \
+--augmentation_speed_up_std 0.3 \
+--dropout_rate 0.2
+
+Test on CVData/clips/test.csv - WER: 1.000000, CER: 0.611080, loss: 99.363358
+--------------------------------------------------------------------------------
+Best WER: 
+--------------------------------------------------------------------------------
+WER: 0.500000, CER: 0.600000, loss: 47.929848
+ - wav: file://CVData/clips/common_voice_pt_19812269.wav
+ - src: "eu sou o senhor"
+ - res: "eu eue o"
+--------------------------------------------------------------------------------
+WER: 0.600000, CER: 0.333333, loss: 24.471043
+ - wav: file://CVData/clips/common_voice_pt_19372053.wav
+ - src: "as pessoas fazem as pessoas"
+ - res: "as pecos ose as peoas"
+--------------------------------------------------------------------------------
+WER: 0.625000, CER: 0.500000, loss: 57.748131
+ - wav: file://CVData/clips/common_voice_pt_19677532.wav
+ - src: "o cacho de uvas foi espremido em vinho"
+ - res: "o caa de oas oes pend em"
+--------------------------------------------------------------------------------
+WER: 0.666667, CER: 0.458333, loss: 38.725899
+ - wav: file://CVData/clips/common_voice_pt_19776109.wav
+ - src: "pessoa em um skate no ar"
+ - res: "es su s tete no ar"
+--------------------------------------------------------------------------------
+WER: 0.666667, CER: 0.818182, loss: 37.720371
+ - wav: file://CVData/clips/common_voice_pt_19551478.wav
+ - src: "eu não pude"
+ - res: "eu"
+--------------------------------------------------------------------------------
+Median WER: 
+--------------------------------------------------------------------------------
+WER: 1.000000, CER: 0.318182, loss: 19.309872
+ - wav: file://CVData/clips/common_voice_pt_19523459.wav
+ - src: "por que não aqui mesmo"
+ - res: "mo cue no aqu mem"
+--------------------------------------------------------------------------------
+WER: 1.000000, CER: 0.500000, loss: 19.211107
+ - wav: file://CVData/clips/common_voice_pt_19401530.wav
+ - src: "saiba mais"
+ - res: "ámba ans"
+--------------------------------------------------------------------------------
+WER: 1.000000, CER: 0.500000, loss: 17.846497
+ - wav: file://CVData/clips/common_voice_pt_19446721.wav
+ - src: "é isso"
+ - res: "eiso"
+--------------------------------------------------------------------------------
+WER: 1.000000, CER: 0.571429, loss: 16.528307
+ - wav: file://CVData/clips/common_voice_pt_19354400.wav
+ - src: "bom dia"
+ - res: "o gi"
+--------------------------------------------------------------------------------
+WER: 1.000000, CER: 0.500000, loss: 15.627568
+ - wav: file://CVData/clips/common_voice_pt_19804623.wav
+ - src: "mas como"
+ - res: "maco"
+--------------------------------------------------------------------------------
+Worst WER: 
+--------------------------------------------------------------------------------
+WER: 3.000000, CER: 0.619048, loss: 45.864971
+ - wav: file://CVData/clips/common_voice_pt_19412360.wav
+ - src: "compartilhamento puro"
+ - res: "o gara di game g bro"
+--------------------------------------------------------------------------------
+WER: 3.000000, CER: 0.800000, loss: 30.389076
+ - wav: file://CVData/clips/common_voice_pt_19435022.wav
+ - src: "ativar legendas"
+ - res: "o te bo e de ndade"
+--------------------------------------------------------------------------------
+WER: 3.000000, CER: 0.545455, loss: 20.627920
+ - wav: file://CVData/clips/common_voice_pt_19312911.wav
+ - src: "notarização"
+ - res: "b tais aço"
+--------------------------------------------------------------------------------
+WER: 4.000000, CER: 1.100000, loss: 55.144577
+ - wav: file://CVData/clips/common_voice_pt_19401568.wav
+ - src: "inevitável"
+ - res: "m me tem are"
+--------------------------------------------------------------------------------
+WER: 6.000000, CER: 0.750000, loss: 30.135111
+ - wav: file://CVData/clips/common_voice_pt_19401102.wav
+ - src: "inadvertidamente"
+ - res: "e nage re de de ente"
+--------------------------------------------------------------------------------
