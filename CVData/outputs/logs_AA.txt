@@ -1,0 +1,96 @@
+EXPERIMENTO=AA
+DATASET_SIZE=
+BATCH_SIZE=60
+N_HIDDEN=512
+LEARNING_RATE=0.001
+ALPHABET_CONFIG_PATH=CVData/alphabet.txt
+
+--data_aug_features_additive 0.3 \
+--data_aug_features_multiplicative 0.3 \
+--dropout_rate 0.2
+
+Testing model on CVData/clips/test.csv
+Test epoch | Steps: 50 | Elapsed Time: 0:02:05                                                                                                                                                             
+Test on CVData/clips/test.csv - WER: 1.000000, CER: 0.610998, loss: 106.530022
+--------------------------------------------------------------------------------
+Best WER: 
+--------------------------------------------------------------------------------
+WER: 0.333333, CER: 0.384615, loss: 22.824827
+ - wav: file://CVData/clips/common_voice_pt_19775645.wav
+ - src: "eu te imploro"
+ - res: "eu te garo"
+--------------------------------------------------------------------------------
+WER: 0.500000, CER: 0.263158, loss: 15.912130
+ - wav: file://CVData/clips/common_voice_pt_19370642.wav
+ - src: "saia do meu caminho"
+ - res: "sae do meu cami"
+--------------------------------------------------------------------------------
+WER: 0.600000, CER: 0.533333, loss: 25.019888
+ - wav: file://CVData/clips/common_voice_pt_19598716.wav
+ - src: "oh o que é isso"
+ - res: "o o que"
+--------------------------------------------------------------------------------
+WER: 0.625000, CER: 0.468750, loss: 74.466782
+ - wav: file://CVData/clips/common_voice_pt_19360573.wav
+ - src: "o gato de rua deu à luz gatinhos"
+ - res: "o gato de eoo pe ro mus caqi"
+--------------------------------------------------------------------------------
+WER: 0.666667, CER: 0.520833, loss: 92.598206
+ - wav: file://CVData/clips/common_voice_pt_19372054.wav
+ - src: "para santa caterina faça boa farinha o bom trigo"
+ - res: "adas sa ade faça boa fa o pr"
+--------------------------------------------------------------------------------
+Median WER: 
+--------------------------------------------------------------------------------
+WER: 1.100000, CER: 0.578125, loss: 170.302292
+ - wav: file://CVData/clips/common_voice_pt_19706267.wav
+ - src: "algumas crianças brincando em um buraco cheio de bolas coloridas"
+ - res: "omas ce sa s meco mun brago de m iboos o erta"
+--------------------------------------------------------------------------------
+WER: 1.100000, CER: 0.677966, loss: 168.242905
+ - wav: file://CVData/clips/common_voice_pt_20007577.wav
+ - src: "duas crianças estão vendo uma bolha gigante flutuar pelo ar"
+ - res: "os ce sas oge no buo de gu cuga bo o"
+--------------------------------------------------------------------------------
+WER: 1.100000, CER: 0.666667, loss: 165.829254
+ - wav: file://CVData/clips/common_voice_pt_19818164.wav
+ - src: "um adolescente tem um anel de prata saindo do nariz"
+ - res: "oade fefe tea gae pa o fade di ar eue te"
+--------------------------------------------------------------------------------
+WER: 1.100000, CER: 0.698113, loss: 163.188660
+ - wav: file://CVData/clips/common_voice_pt_19867246.wav
+ - src: "ele emprestou seu casaco para o estranho alto e magro"
+ - res: "o maem des tao run ro e do pams te emea"
+--------------------------------------------------------------------------------
+WER: 1.100000, CER: 0.540984, loss: 143.166702
+ - wav: file://CVData/clips/common_voice_pt_19791535.wav
+ - src: "mais tarde descobriu se que as paredes não eram impenetráveis"
+ - res: "bais page des fo bis e paieos o aje pere raps"
+--------------------------------------------------------------------------------
+Worst WER: 
+--------------------------------------------------------------------------------
+WER: 3.500000, CER: 0.652174, loss: 53.844444
+ - wav: file://CVData/clips/common_voice_pt_19420984.wav
+ - src: "desporto associativismo"
+ - res: "mus o om assa te bis m"
+--------------------------------------------------------------------------------
+WER: 3.500000, CER: 0.722222, loss: 33.029053
+ - wav: file://CVData/clips/common_voice_pt_19364113.wav
+ - src: "alabama montgomery"
+ - res: "ma la ba ma mate do mu"
+--------------------------------------------------------------------------------
+WER: 3.500000, CER: 0.736842, loss: 30.477549
+ - wav: file://CVData/clips/common_voice_pt_19523401.wav
+ - src: "efeito antioxidante"
+ - res: "ee fei qo e teu cega ete"
+--------------------------------------------------------------------------------
+WER: 4.000000, CER: 0.636364, loss: 24.703756
+ - wav: file://CVData/clips/common_voice_pt_19312911.wav
+ - src: "notarização"
+ - res: "do ta is aça"
+--------------------------------------------------------------------------------
+WER: 6.000000, CER: 0.812500, loss: 26.617878
+ - wav: file://CVData/clips/common_voice_pt_19401102.wav
+ - src: "inadvertidamente"
+ - res: "me nage ga di dame de"
+--------------------------------------------------------------------------------

@@ -1,0 +1,95 @@
+EXPERIMENTO=AA_LM
+DATASET_SIZE=
+BATCH_SIZE=60
+N_HIDDEN=512
+LEARNING_RATE=0.00095
+
+--data_aug_features_additive 0.3 \
+--data_aug_features_multiplicative 0.3 \
+--dropout_rate 0.2
+
+Testing model on CVData/clips/test.csv
+Test epoch | Steps: 50 | Elapsed Time: 0:01:45                                                                                                                                                             
+Test on CVData/clips/test.csv - WER: 1.000000, CER: 0.572019, loss: 102.487823
+--------------------------------------------------------------------------------
+Best WER: 
+--------------------------------------------------------------------------------
+WER: 0.000000, CER: 0.000000, loss: 9.167098
+ - wav: file://CVData/clips/common_voice_pt_19369671.wav
+ - src: "ambos"
+ - res: "ambos"
+--------------------------------------------------------------------------------
+WER: 0.166667, CER: 0.076923, loss: 22.345049
+ - wav: file://CVData/clips/common_voice_pt_20007574.wav
+ - src: "mas eu tive que fazer isso"
+ - res: "mas o tive que fazer isso"
+--------------------------------------------------------------------------------
+WER: 0.200000, CER: 0.109091, loss: 29.186733
+ - wav: file://CVData/clips/common_voice_pt_19369677.wav
+ - src: "um menino olha para o caranguejo que ele está segurando"
+ - res: "um menino olha para cara giro que ele está segurando"
+--------------------------------------------------------------------------------
+WER: 0.200000, CER: 0.034483, loss: 21.192574
+ - wav: file://CVData/clips/common_voice_pt_19396208.wav
+ - src: "poucas palavras e muitos atos"
+ - res: "poucas palavras e muitos apos"
+--------------------------------------------------------------------------------
+WER: 0.250000, CER: 0.162791, loss: 49.089191
+ - wav: file://CVData/clips/common_voice_pt_19451991.wav
+ - src: "a mina de cobalto foi abandonada há décadas"
+ - res: "a mina de cobalto foi abandonada pateta das"
+--------------------------------------------------------------------------------
+Median WER: 
+--------------------------------------------------------------------------------
+WER: 1.000000, CER: 0.473684, loss: 104.804802
+ - wav: file://CVData/clips/common_voice_pt_19388001.wav
+ - src: "era seu destino manifesto comer aquela barra de chocolate"
+ - res: "eras sou de digo marcar comer al bar cora"
+--------------------------------------------------------------------------------
+WER: 1.000000, CER: 0.529412, loss: 104.764008
+ - wav: file://CVData/clips/common_voice_pt_19451981.wav
+ - src: "de acordo com a receita precisamos de mostarda leve"
+ - res: "da porto cores teto pesa o justa da varre"
+--------------------------------------------------------------------------------
+WER: 1.000000, CER: 0.520833, loss: 104.692696
+ - wav: file://CVData/clips/common_voice_pt_19401779.wav
+ - src: "várias mulheres que parecem estar batendo cabeça"
+ - res: "vais mulheres balas is ver mode doca bes"
+--------------------------------------------------------------------------------
+WER: 1.000000, CER: 0.545455, loss: 104.661766
+ - wav: file://CVData/clips/common_voice_pt_20081718.wav
+ - src: "uma garota sorri enquanto interage com o pessoal médico"
+ - res: "o o garotos fico conte rage com peso verde vo"
+--------------------------------------------------------------------------------
+WER: 1.000000, CER: 0.621622, loss: 104.489929
+ - wav: file://CVData/clips/common_voice_pt_19777629.wav
+ - src: "quando o nosso avião decola novamente"
+ - res: "unidos o vi m duro a mid"
+--------------------------------------------------------------------------------
+Worst WER: 
+--------------------------------------------------------------------------------
+WER: 3.000000, CER: 1.181818, loss: 55.443127
+ - wav: file://CVData/clips/common_voice_pt_19479765.wav
+ - src: "vamos comer"
+ - res: "e as par a on ao"
+--------------------------------------------------------------------------------
+WER: 3.000000, CER: 1.100000, loss: 49.805904
+ - wav: file://CVData/clips/common_voice_pt_19401568.wav
+ - src: "inevitável"
+ - res: "em mini arri"
+--------------------------------------------------------------------------------
+WER: 3.000000, CER: 0.727273, loss: 24.415342
+ - wav: file://CVData/clips/common_voice_pt_19312911.wav
+ - src: "notarização"
+ - res: "do paris asa"
+--------------------------------------------------------------------------------
+WER: 3.500000, CER: 0.652174, loss: 56.721859
+ - wav: file://CVData/clips/common_voice_pt_19420984.wav
+ - src: "desporto associativismo"
+ - res: "disso por o as use que vis"
+--------------------------------------------------------------------------------
+WER: 5.000000, CER: 0.875000, loss: 45.411018
+ - wav: file://CVData/clips/common_voice_pt_19401102.wav
+ - src: "inadvertidamente"
+ - res: "mega gera de e gerente"
+--------------------------------------------------------------------------------

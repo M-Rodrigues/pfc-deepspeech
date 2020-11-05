@@ -1,0 +1,19 @@
+tensorflow==1.15.2
+numpy
+progressbar2
+six
+pyxdg
+attrdict
+absl-py
+semver
+opuslib==2.0.0
+optuna
+sox
+bs4
+pandas
+requests
+numba==0.47.0
+llvmlite==0.31.0
+librosa
+soundfile
+ds_ctcdecoder@ https://community-tc.services.mozilla.com/api/index/v1/task/project.deepspeech.deepspeech.native_client.v0.7.1.cpu-ctc/artifacts/public/ds_ctcdecoder-0.7.1-cp36-cp36m-manylinux1_x86_64.whl
