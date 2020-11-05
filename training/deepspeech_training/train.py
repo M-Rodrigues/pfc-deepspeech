@@ -92,9 +92,7 @@ def dense(name, x, units, dropout_rate=None, relu=True):
 
 
 def rnn_impl_lstmblockfusedcell(x, seq_length, previous_state, reuse, cell_name=None):
-    if cell_name is None:
-        cell_name = 'cudnn_lstm/rnn/multi_rnn_cell/cell_0'
-    with tfv1.variable_scope(cell_name):
+    with tfv1.variable_scope('cudnn_lstm/rnn/multi_rnn_cell/cell_0'):
         fw_cell = tf.contrib.rnn.LSTMBlockFusedCell(Config.n_cell_dim,
                                                     forget_bias=0,
                                                     reuse=reuse,
@@ -205,20 +203,7 @@ def create_model(batch_x, seq_length, dropout, reuse=False, batch_size=None, pre
     
     # Run through parametrized RNN implementation, as we use different RNNs
     # for training and inference
-    # output, output_state = rnn_impl(layer_3, seq_length, previous_state, reuse, 'cudnn_lstm/rnn/multi_rnn_cell/cell_0')
-
-    if previous_state is None:
-        previous_state = [None] * 3
-    # 3 LSTMs em pilhadas
-    layer_lstm_1, layer_lstm_state_1 = rnn_impl(layer_3, seq_length, previous_state[0], reuse, 'cudnn_lstm/rnn/multi_rnn_cell/cell_0')
-    layer_lstm_2, layer_lstm_state_2 = rnn_impl(layer_lstm_1, seq_length, previous_state[1], reuse, 'cudnn_lstm/rnn/multi_rnn_cell/cell_1')
-    output, output_state = rnn_impl(layer_lstm_2, seq_length, previous_state[2], reuse, 'cudnn_lstm/rnn/multi_rnn_cell/cell_2')
-    layers['rnn_output_1'] = layer_lstm_1
-    layers['rnn_output_state_1'] = layer_lstm_state_1
-    layers['rnn_output_2'] = layer_lstm_2
-    layers['rnn_output_state_2'] = layer_lstm_state_2
-    layers['rnn_output_3'] = output
-    layers['rnn_output_state_3'] = output_state
+    output, output_state = rnn_impl(layer_3, seq_length, previous_state, reuse, 'cudnn_lstm/rnn/multi_rnn_cell/cell_0')
 
     # Reshape output from a tensor of shape [n_steps, batch_size, n_cell_dim]
     # to a tensor of shape [n_steps*batch_size, n_cell_dim]
@@ -706,16 +691,6 @@ def create_inference_graph(batch_size=1, n_steps=16, tflite=False):
         previous_state_h = tfv1.placeholder(tf.float32, [batch_size, Config.n_cell_dim], name='previous_state_h')
         previous_state = tf.nn.rnn_cell.LSTMStateTuple(previous_state_c, previous_state_h)
 
-        previous_state_c_2 = tfv1.placeholder(tf.float32, [batch_size, Config.n_cell_dim], name='previous_state_c_2')
-        previous_state_h_2 = tfv1.placeholder(tf.float32, [batch_size, Config.n_cell_dim], name='previous_state_h_2')
-        previous_state_2 = tf.nn.rnn_cell.LSTMStateTuple(previous_state_c_2, previous_state_h_2)
-
-        previous_state_c_3 = tfv1.placeholder(tf.float32, [batch_size, Config.n_cell_dim], name='previous_state_c_3')
-        previous_state_h_3 = tfv1.placeholder(tf.float32, [batch_size, Config.n_cell_dim], name='previous_state_h_3')
-        previous_state_3 = tf.nn.rnn_cell.LSTMStateTuple(previous_state_c_3, previous_state_h_3)
-
-        previous_state = [previous_state, previous_state_2, previous_state_3]
-
     # One rate per layer
     no_dropout = [None] * 6
 
@@ -765,10 +740,6 @@ def create_inference_graph(batch_size=1, n_steps=16, tflite=False):
         'input': input_tensor,
         'previous_state_c': previous_state_c,
         'previous_state_h': previous_state_h,
-        'previous_state_c_2': previous_state_c_2,
-        'previous_state_h_2': previous_state_h_2,
-        'previous_state_c_3': previous_state_c_3,
-        'previous_state_h_3': previous_state_h_3,
         'input_samples': input_samples,
     }
 
@@ -904,10 +875,6 @@ def do_single_file_inference(input_file_path):
         features, features_len = audiofile_to_features(input_file_path)
         previous_state_c = np.zeros([1, Config.n_cell_dim])
         previous_state_h = np.zeros([1, Config.n_cell_dim])
-        previous_state_c_2 = np.zeros([1, Config.n_cell_dim])
-        previous_state_h_2 = np.zeros([1, Config.n_cell_dim])
-        previous_state_c_3 = np.zeros([1, Config.n_cell_dim])
-        previous_state_h_3 = np.zeros([1, Config.n_cell_dim])
 
         # Add batch dimension
         features = tf.expand_dims(features, 0)
@@ -922,10 +889,6 @@ def do_single_file_inference(input_file_path):
             inputs['input_lengths']: features_len,
             inputs['previous_state_c']: previous_state_c,
             inputs['previous_state_h']: previous_state_h,
-            inputs['previous_state_c_2']: previous_state_c_2,
-            inputs['previous_state_h_2']: previous_state_h_2,
-            inputs['previous_state_c_3']: previous_state_c_3,
-            inputs['previous_state_h_3']: previous_state_h_3,
         }, session=session)
 
         logits = np.squeeze(logits)
